@@ -26,7 +26,6 @@
   margin-top: 0;
 }
 
-
 .profile-container header button {
   height: 60px;
   width: 60px;
@@ -61,15 +60,24 @@
   position: relative;
 }
 
-.profile-container ul li button {
-  background: transparent;
+.profile-container ul li .buttons-group {
+  display: flex;
+
   position: absolute;
   right: 24px;
   top: 24px;
+}
+
+.profile-container ul li .buttons-group button:first-child {
+  margin-right: 14px;
+}
+
+.profile-container ul li .buttons-group button {
+  background: transparent;
   border: 0;
 }
 
-.profile-container ul li button:hover {
+.profile-container ul li .buttons-group button:hover {
   opacity: 0.8;
 }
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
-import { FiPower, FiTrash2 } from 'react-icons/fi'
+import { FiPower, FiTrash2, FiEdit } from 'react-icons/fi'
 
 import api from '../../services/api'
 
@@ -25,6 +25,15 @@ export default function Profile() {
       setIncidents(res.data)
     })
   }, [ongId])
+
+  function handleUpdateIncident(id, title, description, value) {
+    localStorage.setItem('incidentId', id)
+    localStorage.setItem('incidentTitle', title)
+    localStorage.setItem('incidentDescription', description)
+    localStorage.setItem('incidentValue', value)
+
+    history.push('incidents/edit')
+  }
 
   async function handleDeleteIncident(id) {
     try {
@@ -81,9 +90,21 @@ export default function Profile() {
               }).format(incident.value)}
             </p>
 
-            <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
-              <FiTrash2 size={20} color="#a8a8b3" />
-            </button>
+            <div className="buttons-group">
+
+              <button type="button" onClick={() => handleUpdateIncident(
+                incident.id,
+                incident.title,
+                incident.description,
+                incident.value
+              )}>
+                <FiEdit size={20} color="#E02041" />
+              </button>
+
+              <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
+                <FiTrash2 size={20} color="#a8a8b3" />
+              </button>
+            </div>
           </li>
         ))}
       </ul>
