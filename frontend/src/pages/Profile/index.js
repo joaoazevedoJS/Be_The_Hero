@@ -13,6 +13,11 @@ export default function Profile() {
 
   const history = useHistory()
 
+  // Se não estiver a ong não estiver logada será enviada para logon
+  if(!localStorage.getItem('ongId')) {
+    history.push('/')
+  }
+
   const ongId = localStorage.getItem('ongId')
   const ongName = localStorage.getItem('ongName')
 
@@ -60,15 +65,17 @@ export default function Profile() {
       <header>
         <img src={logoImg} alt="Be The Hero" />
 
-        <span>Bem vinda, {ongName.toUpperCase()}</span>
+        <span>Bem vinda, {ongName}</span>
 
-        <Link className="button" to="/incidents/new">
-          Cadastrar novo caso
-        </Link>
+        <div className="responsive-flex">
+          <Link className="button" to="/incidents/new">
+            Cadastrar novo caso
+          </Link>
 
-        <button type="button" onClick={handleLogout}>
-          <FiPower size={18} color="#E02041" />
-        </button>
+          <button type="button" onClick={handleLogout}>
+            <FiPower size={18} color="#E02041" />
+          </button>
+        </div>
       </header>
 
       <h1>Casos cadastrados</h1>

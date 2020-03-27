@@ -35,7 +35,7 @@ module.exports = {
 
     await connection('ongs').insert({
       id,
-      name,
+      name: name.toUpperCase(),
       email,
       whatsapp,
       city,

@@ -26,6 +26,7 @@ form input,
   width: 100%;
   height: 60px;
   border-radius: 8px;
+  overflow: hidden;
 }
 
 form input{
@@ -80,4 +81,25 @@ textarea {
 
 .back-link:hover {
   opacity: 0.8;
+}
+
+.Edit-Theme .ColorTheme {
+  color: #41414d;
+  background: transparent;
+  position: absolute;
+  top: 50px;
+  left: 30px;
+  cursor: pointer;
+}
+
+.Edit-Theme .sun {
+  color: #F0F0F5;
+}
+
+.dracula {
+  background: rgb(40, 42, 54);
+}
+
+.hide {
+  display: none;
 }

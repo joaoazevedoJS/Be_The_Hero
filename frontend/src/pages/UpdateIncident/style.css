@@ -46,3 +46,19 @@
 .edit-incident-container .content form textarea {
   margin-top: 8px;
 }
+
+@media (max-width: 1010px) {
+  .edit-incident-container {
+    height: auto;
+  }
+
+  .edit-incident-container .content {
+    margin-top: 10px;
+    flex-direction: column;
+    background: transparent;
+  }
+
+  .edit-incident-container .content section a {
+    margin-bottom: 100px;
+  }
+}

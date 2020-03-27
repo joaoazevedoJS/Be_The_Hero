@@ -54,3 +54,19 @@
   margin-left: 8px;
 }
 
+
+@media (max-width: 1010px) {
+  .register-container {
+    height: auto;
+  }
+
+  .register-container .content {
+    margin-top: 10px;
+    flex-direction: column;
+    background: transparent;
+  }
+
+  .register-container .content section a {
+    margin-bottom: 100px;
+  }
+}

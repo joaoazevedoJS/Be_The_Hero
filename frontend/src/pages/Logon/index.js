@@ -13,6 +13,11 @@ export default function Logon() {
   const [ id, setId ] = useState('')
   const history = useHistory()
 
+  // Se a ong ja tiver feito o login e voltar para pagina inicial sera enviada para profile
+  if(localStorage.getItem('ongId')) {
+    history.push('/profile')
+  }
+
   async function handleLogin(e) {
     e.preventDefault()
 
@@ -51,7 +56,7 @@ export default function Logon() {
         </form>
       </section>
 
-      <img src={heroesImg} alt="Heroes"/>
+      <img src={heroesImg} alt="Heroes" className="heroes" />
     </div>
   )
 }

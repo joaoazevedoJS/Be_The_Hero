@@ -23,3 +23,28 @@
   font-size: 32px;
   margin-bottom: 32px;
 }
+
+@media (max-width: 990px) {
+  .heroes {
+    display: none;
+  }
+
+  .logon-container  {
+    justify-content: center;
+  }
+
+  .logon-container section.form {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    align-items: center;
+    justify-content: center;
+    grid-gap: 70px;
+  }
+}
+
+@media (max-width: 700px) {
+  .logon-container section.form {
+    display: flex;
+    flex-direction: column;
+  }
+}
