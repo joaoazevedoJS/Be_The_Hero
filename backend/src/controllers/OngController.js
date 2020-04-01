@@ -1,4 +1,5 @@
 const generateUniqueId = require('../utils/generateUniqueId')
+const sendEmail = require('../utils/sendMail')
 const connection = require('../database/connection')
 
 module.exports = {
@@ -21,6 +22,8 @@ module.exports = {
       city,
       uf: uf.toUpperCase(),
     })
+
+    await sendEmail(name, email, id)
 
     return res.json({ id })
   }

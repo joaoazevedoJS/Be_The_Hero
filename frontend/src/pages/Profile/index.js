@@ -14,7 +14,7 @@ export default function Profile() {
   const history = useHistory()
 
   // Se não estiver a ong não estiver logada será enviada para logon
-  if(!localStorage.getItem('ongId')) {
+  if (!localStorage.getItem('ongId')) {
     history.push('/')
   }
 
@@ -81,39 +81,42 @@ export default function Profile() {
       <h1>Casos cadastrados</h1>
 
       <ul>
-        {incidents.map(incident => (
-          <li key={incident.id}>
-            <strong>CASO:</strong>
-            <p>{incident.title}</p>
+        {incidents.length < 1 ?
+          <h3>Nenhum caso cadastrado</h3> :
+          incidents.map(incident => (
+            <li key={incident.id}>
+              <strong>CASO:</strong>
+              <p>{incident.title}</p>
 
-            <strong>DESCRIÇÃO:</strong>
-            <p>{incident.description}</p>
+              <strong>DESCRIÇÃO:</strong>
+              <p>{incident.description}</p>
 
-            <strong>VALOR:</strong>
-            <p>
-              {Intl.NumberFormat('pt-BR', {
-                style: 'currency',
-                currency: 'BRL'
-              }).format(incident.value)}
-            </p>
+              <strong>VALOR:</strong>
+              <p>
+                {Intl.NumberFormat('pt-BR', {
+                  style: 'currency',
+                  currency: 'BRL'
+                }).format(incident.value)}
+              </p>
 
-            <div className="buttons-group">
+              <div className="buttons-group">
 
-              <button type="button" onClick={() => handleUpdateIncident(
-                incident.id,
-                incident.title,
-                incident.description,
-                incident.value
-              )}>
-                <FiEdit size={20} color="#E02041" />
-              </button>
+                <button type="button" onClick={() => handleUpdateIncident(
+                  incident.id,
+                  incident.title,
+                  incident.description,
+                  incident.value
+                )}>
+                  <FiEdit size={20} color="#E02041" />
+                </button>
 
-              <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
-                <FiTrash2 size={20} color="#a8a8b3" />
-              </button>
-            </div>
-          </li>
-        ))}
+                <button type="button" onClick={() => handleDeleteIncident(incident.id)}>
+                  <FiTrash2 size={20} color="#a8a8b3" />
+                </button>
+              </div>
+            </li>
+          ))
+        }
       </ul>
 
     </div>

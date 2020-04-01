@@ -15,11 +15,14 @@
 5. Bug de criar Casos e ONGS sem os dados consertado
 6. Dracula Theme
 7. Frontend responsivo
+8. Enviar Id para o email cadastrado
+9. Se não tiver nenhum caso, retornar um aviso de 'Nenhum caso cadastrado'
 
-## Futuras Modificações
+## Enviar email com o id
 
-* [ ] Enviar Id para o email cadastrado
-* [ ] Se não tiver nenhum caso, retornar um aviso de 'Nenhum caso cadastrado'
+Eu envie o email usando mailtrap,
+então crie uma conta no mailtrap e
+troque o config.json
 
 ## Dracula Theme
 
